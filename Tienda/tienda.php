@@ -1,10 +1,18 @@
 <?php 
 session_start();
 
-define('STOCK','stock.data');
-$stock = unserialize(file_get_contents(STOCK)); //tenemos stock
+// Cargar stock desde stock.data
+$stock = unserialize(file_get_contents('stock.data')) ?: [
+    "Teclados" => 50,
+    "Ratones" => 50,
+    "Pantallas" => 50,
+    "Altavoces" => 50,
+    "Led" => 50,
+    "Ram" => 50
+];
 
-$preciosProductos=[ //tenemos los precios
+// Precios de los productos
+$preciosProductos = [ 
     "Teclados" => 20,
     "Ratones" => 15,
     "Pantallas" => 120,
@@ -13,13 +21,12 @@ $preciosProductos=[ //tenemos los precios
     "Ram" => 160
 ];
 
-$productos=[];//iniciamos el array de los productos
-//por cada elemento de preciosProductos se guarde en $producto(nombre) y $precio(su precio)
-foreach($preciosProductos as $producto => $precio){
-    $productos[$producto]=[
-        "precio"=>$precio,
-        "cantidad"=>$stock[$producto]??0
-        //el "??0" dice que en caso de que no haya datos que ponga de 0 de stock 
+$productos = []; // Iniciamos el array de productos
+// Guardamos el precio y cantidad en stock de cada producto
+foreach ($preciosProductos as $producto => $precio) {
+    $productos[$producto] = [
+        "precio" => $precio,
+        "cantidad" => $stock[$producto] ?? 0
     ];
 }
 ?>
@@ -29,21 +36,39 @@ foreach($preciosProductos as $producto => $precio){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tienda</title>
+    <style>
+        .btn-rojo {
+            background-color: red; /* Fondo rojo */
+            color: white; /* Texto en blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espaciado interno */
+            cursor: pointer; /* Cambiar cursor al pasar por encima */
+            font-size: 16px; /* Tamaño de fuente */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+        .btn-rojo:hover {
+            background-color: darkred; /* Color al pasar el cursor */
+        }
+    </style>
 </head>
 <body>
     
 <?php 
-    $nombre=$_POST['nombre'];
-    echo"<h1><center><b>Hora de comprar!!</b></center></h1>";
-    echo"<h3>Bienvenido $nombre estos son nuestros productos disponibles.</h3>";
+    $nombre = htmlspecialchars($_POST['nombre']);
+    echo "<h1><center><b>Hora de comprar!!</b></center></h1>";
+    echo "<h3>Bienvenido $nombre, estos son nuestros productos disponibles.</h3>";
 ?>
-<!-- Parte de la tienda -->    
+
+<!-- Parte de la tienda -->   
+<hr> 
+<form action="fin.php" method="post">
 <table border="1">
     <tr>
         <th>Producto</th>
         <th>Precio</th>
-        <th>Cantidad en Stock</th>
+        <th>Stock(tienda)</th>
+        <th>Comprar</th>
     </tr>
     <?php 
     foreach ($productos as $producto => $info) {
@@ -51,10 +76,19 @@ foreach($preciosProductos as $producto => $precio){
         echo "<td>" . htmlspecialchars($producto) . "</td>"; // Nombre del producto
         echo "<td>$" . htmlspecialchars($info['precio']) . "</td>"; // Precio del producto
         echo "<td>" . htmlspecialchars($info['cantidad']) . "</td>"; // Cantidad en stock
+        // Cantidad que compra el usuario 
+        echo "<td><input type='number' name='cantidad[$producto]' min='0' max='" . $info['cantidad'] . "' value='0'></td>"; 
         echo "</tr>";
     }
     ?>
 </table>
+<p></p>
+<button type="submit">Confirmar compra</button> 
+</form>
+<p></p>
+<form action="restablecer.php" method="post">
+    <button type="submit" class="btn-rojo">Restablecer Stock</button>
+</form>
+
 </body>
 </html>
-
