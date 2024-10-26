@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$stock = unserialize(file_get_contents('stock.data')); // Cargamos el stock existente
+$stock = unserialize(file_get_contents('stock.data')); //  stock existente
 
 $preciosProductos = [
     "Teclados" => 20,
@@ -16,7 +16,7 @@ $cantidades = $_POST['cantidad'] ?? [];
 $totalFinal = 0;
 $productosComprados = [];
 
-// Calculamos el precio total de cada producto comprado
+// calculamos los precios 
 foreach ($cantidades as $producto => $cantidad) {
     if ($cantidad > 0) {
         $precioUnidad = $preciosProductos[$producto] ?? 0;
@@ -74,7 +74,7 @@ foreach ($cantidades as $producto => $cantidad) {
 </form>
 
 <?php 
-// Guardamos el nuevo stock en el archivo
+
 file_put_contents('stock.data', serialize($stock));
 ?>
 </body>

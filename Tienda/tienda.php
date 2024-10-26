@@ -39,16 +39,14 @@ foreach ($preciosProductos as $producto => $precio) {
     <title>Tienda</title>
     <style>
         .btn-rojo {
-            background-color: red; /* Fondo rojo */
-            color: white; /* Texto en blanco */
-            border: none; /* Sin borde */
-            padding: 10px 20px; /* Espaciado interno */
-            cursor: pointer; /* Cambiar cursor al pasar por encima */
-            font-size: 16px; /* Tamaño de fuente */
-            border-radius: 5px; /* Bordes redondeados */
+            background-color: red; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            font-size: 16px;
         }
         .btn-rojo:hover {
-            background-color: darkred; /* Color al pasar el cursor */
+            background-color: darkred;  
         }
     </style>
 </head>
