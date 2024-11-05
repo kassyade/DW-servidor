@@ -53,8 +53,9 @@ foreach ($preciosProductos as $producto => $precio) {
 <body>
     
 <?php 
+    $nombre = htmlspecialchars($_POST['nombre']);
     echo "<h1><center><b>Hora de comprar!!</b></center></h1>";
-    echo "<h3>Bienvenido, estos son nuestros productos disponibles.</h3>";
+    echo "<h3>Bienvenido $nombre, estos son nuestros productos disponibles.</h3>";
 ?>
 
 <!-- Parte de la tienda -->   
@@ -83,9 +84,10 @@ foreach ($preciosProductos as $producto => $precio) {
 <button type="submit">Confirmar compra</button> 
 </form>
 <p></p>
-<form action="restablecer.php" method="post">
-    <button type="submit" class="btn-rojo">Restablecer Stock</button>
-</form>
+
+    <?php if ($_SESSION['rol'] == 'admin'): ?>
+        <a href="restablecer.php">Restablecer stock</a>
+    <?php endif; ?>
 
 </body>
 </html>
