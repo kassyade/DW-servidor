@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-
 // Cargar stock desde stock.data
 $stock = unserialize(file_get_contents('stock.data')) ?: [
     "Teclados" => 50,
@@ -79,7 +78,6 @@ foreach ($preciosProductos as $producto => $precio) {
         echo "<td><input type='number' name='cantidad[$producto]' min='0' max='" . $info['cantidad'] . "' value='0'></td>"; 
         echo "</tr>";
     }
-    
     ?>
 </table>
 <p></p>
