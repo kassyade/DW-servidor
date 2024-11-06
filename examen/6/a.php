@@ -18,6 +18,4 @@ file_put_contents(RUTA_ARCHIVO,serialize($data),FILE_APPEND);
 echo("<p>{$nombre}</p>
 <p>{$email}</p>
 <p>{$contraseña}</p>");
-
-
 ?>
