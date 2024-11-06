@@ -1,1 +1,1 @@
-a:1:{s:1:"a";a:2:{s:8:"password";s:60:"$2y$10$lMcKyO/bG2a0RPNj8SM5v./2BcSRHBXEpypUYEiKPLW5BdkURhoFK";s:3:"rol";s:4:"user";}}
+a:2:{s:5:"admin";a:2:{s:8:"password";s:60:"$2y$10$qXbhB83SMUCqo9/K6w6.G.9QNglRSkVMpmCbVizwvpMETlP/Vy6bC";s:3:"rol";s:5:"admin";}s:8:"usuario1";a:2:{s:8:"password";s:60:"$2y$10$4JZ7dhnjwgCtka4hDMsNZeUZ5HroBs9.zn/txncwreOzcQyuGiDtu";s:3:"rol";s:4:"user";}}
