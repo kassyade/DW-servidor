@@ -10,7 +10,7 @@
     <p>Escribe un script que convierta euros a la moneda elegida por el usuario (dólares, libras, yenes, francos). Usa un array
     asociativo para almacenar los valores de conversión</p>
     <form action="a.php" method="post">
-    <label>Introduce la cantidad para hacer el cambio </label>
+    <label>Introduce la cantidad para hacer el cambio (tene en cuenta que empezamos en euros )</label>
     <input type="number" name="cantidad">
 
     <select name="moneda">
