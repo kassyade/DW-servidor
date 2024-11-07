@@ -13,7 +13,7 @@ $data=[
 "contraseña"=>$contraseña
 ];
 
-file_put_contents(RUTA_ARCHIVO,serialize($data),FILE_APPEND);
+file_put_contents(RUTA_ARCHIVO,serialize($data),FILE_APPEND);//recuerdausar file_appedn para que no se sobreescriban los datos cada que introduzcas uno nuevo 
 
 echo("<p>{$nombre}</p>
 <p>{$email}</p>
