@@ -1,3 +1,36 @@
+<?php
+define("RUTA", "inventario.data"); // Define la ruta del archivo
+
+// Comprobamos si el formulario ha sido enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['nombre']) && !empty($_POST['precio']) && !empty($_POST['stock'])) {
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $stock = $_POST['stock'];
+
+    $producto = [
+        "nombre" => $nombre,
+        "precio" => $precio,
+        "stock" => $stock
+    ];
+
+    // Cargar productos existentes
+    $productos = [];
+    if (file_exists(RUTA)) {
+        $productos = unserialize(file_get_contents(RUTA));
+    }
+
+    // Agregar el nuevo producto y guardar en el archivo
+    $productos[] = $producto;
+    file_put_contents(RUTA, serialize($productos));
+} else {
+    // Cargar productos existentes solo para mostrar, sin agregar nuevos
+    $productos = [];
+    if (file_exists(RUTA)) {
+        $productos = unserialize(file_get_contents(RUTA));
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,34 +54,13 @@
         <button type="submit">Crear nuevo producto</button>
     </form>
 
+    <h2>Productos:</h2>
     <?php 
-    define("RUTA", "inventario.data");
-
-    // Inicializar el array de productos cargando el archivo si existe
-    $productos = file_exists(RUTA) ? unserialize(file_get_contents(RUTA)) : [];
-
-    // Comprobar si el formulario ha sido enviado
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['nombre'], $_POST['precio'], $_POST['stock'])) {
-        // Crear el nuevo producto
-        $producto = [
-            "nombre" => $_POST['nombre'],
-            "precio" => $_POST['precio'],
-            "stock" => $_POST['stock']
-        ];
-
-        // Añadir el nuevo producto al array de productos
-        $productos[] = $producto;
-
-        // Guardar el array de productos actualizado en el archivo
-        file_put_contents(RUTA, serialize($productos));
-    }
-    ?>
-
-    <h3>Stock actual</h3>
-    <?php 
-    // Mostrar los productos en el inventario actual
-    foreach ($productos as $item) {
-        echo "<p>Producto: {$item['nombre']} - Precio: {$item['precio']} - Stock: {$item['stock']}</p>";
+    // Mostrar productos guardados
+    if (!empty($productos)) {
+        foreach ($productos as $producto) {
+            echo "<p>Nombre: {$producto['nombre']}, Precio: {$producto['precio']}, Stock: {$producto['stock']}</p>";
+        }
     }
     ?>
 </body>
