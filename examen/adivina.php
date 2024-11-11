@@ -1,22 +1,28 @@
 <?php 
 session_start();
-
-if($_SERVER['REQUEST_METHOD']=='POST' && !empty($_POST['usuario'])  && isset($_SESSION['numero'])){
-$_SESSION['intentos'] ++;
-$intentos = $_SESSION['intentos'];
-$numero = $_SESSION['numero'];
-echo("intentado");
-}else if(!isset($_SESSION['numero'])){
-
-    $_SESSION['numero']= rand(1,10);
-    $_SESSION['intentos']=0;  
+//primera vez
+if ( !empty($_SERVER['REQUEST_METHOD']=='POST')&& !isset($_SESSION['numero'])&& !empty($_POST['usuario']) ){
+    $_SESSION['numero']=rand(1,5);
     $numero = $_SESSION['numero'];
-    
-} else if (empty($_POST['usuario']) ){
-    echo("<p>pero pon un numero tonto culiao</p>");
+    $usuario = $_POST['usuario'];
+    $_SESSION['intentos']=1;
+    echo($numero);
+
+
+}else if ($_SERVER['REQUEST_METHOD']=='POST' && !empty($_POST['usuario']) && isset($_SESSION['numero']) )  {
+    $numero = $_SESSION['numero'];
+    $usuario = $_POST['usuario'];
+
+    if($numero== $usuario){
+        echo("numero correcto");
+        session_destroy();
+    }else{
+        echo("intenta otra vez");
+        $intentos=$_SESSION['intentos']++;
+        echo($numero);
+        echo($intentos);
+    };
 };
-
-
 
 
 ?>
@@ -35,11 +41,5 @@ echo("intentado");
     <input type="number" name="usuario">
     <button type="submit">Intentar</button>
     </form>
-
-    <?php 
-    echo("<p>{$numero}</p>");
-    echo("<p>{$intentos}</p>");
-
-    ?>
 </body>
 </html>

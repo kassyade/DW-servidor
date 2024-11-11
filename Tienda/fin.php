@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$stock = unserialize(file_get_contents('stock.data')); //  stock existente
+$stock = unserialize(file_get_contents('stock.data')); // stock existente
 
 $preciosProductos = [
     "Teclados" => 20,
@@ -16,17 +16,25 @@ $cantidades = $_POST['cantidad'] ?? [];
 $totalFinal = 0;
 $productosComprados = [];
 
-// calculamos los precios 
+// validación
 foreach ($cantidades as $producto => $cantidad) {
-    if ($cantidad > 0) {
-        $precioUnidad = $preciosProductos[$producto] ?? 0;
-        $precioTotal = $precioUnidad * $cantidad;
-        $totalFinal += $precioTotal;
-        $productosComprados[$producto] = [
-            "precioUnidad" => $precioUnidad,
-            "cantidad" => $cantidad,
-            "precioTotal" => $precioTotal
-        ];
+    if (is_numeric($cantidad) && $cantidad > 0) {
+        if ($cantidad <= $stock[$producto]) {
+            $precioUnidad = $preciosProductos[$producto] ?? 0;
+            $precioTotal = $precioUnidad * $cantidad;
+            $totalFinal += $precioTotal;
+            $productosComprados[$producto] = [
+                "precioUnidad" => $precioUnidad,
+                "cantidad" => $cantidad,
+                "precioTotal" => $precioTotal
+            ];
+            // act el stock
+            $stock[$producto] -= $cantidad;
+        } else {
+            echo "<p>Error: La cantidad  de $producto excede el stock .</p>";
+        }
+    } else {
+        echo "<p>Error: La cantidad ingresada para $producto no es válida.</p>";
     }
 }
 ?>
@@ -56,9 +64,6 @@ foreach ($cantidades as $producto => $cantidad) {
         echo "<td>" . htmlspecialchars($info['cantidad']) . "</td>";
         echo "<td>$" . htmlspecialchars($info['precioTotal']) . "</td>";
         echo "</tr>";
-        
-        // Actualizamos el stock
-        $stock[$producto] -= $info['cantidad'];
     }
     ?>
 </table>
@@ -74,7 +79,6 @@ foreach ($cantidades as $producto => $cantidad) {
 </form>
 
 <?php 
-
 file_put_contents('stock.data', serialize($stock));
 ?>
 </body>

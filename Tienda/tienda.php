@@ -1,6 +1,8 @@
 <?php 
 session_start();
+$nombre= $_POST['nombre'];
 
+if(preg_match('/^[a-zA-Z\s]+$/',$nombre)){
 // Cargar stock desde stock.data
 $stock = unserialize(file_get_contents('stock.data')) ?: [
     "Teclados" => 50,
@@ -29,6 +31,8 @@ foreach ($preciosProductos as $producto => $precio) {
         "cantidad" => $stock[$producto] ?? 0
     ];
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +58,7 @@ foreach ($preciosProductos as $producto => $precio) {
     
 <?php 
     echo "<h1><center><b>Hora de comprar!!</b></center></h1>";
-    echo "<h3>Bienvenido, estos son nuestros productos disponibles.</h3>";
+    echo "<h3>Bienvenido {$nombre}, estos son nuestros productos disponibles.</h3>";
 ?>
 
 <!-- Parte de la tienda -->   
@@ -74,7 +78,7 @@ foreach ($preciosProductos as $producto => $precio) {
         echo "<td>$" . htmlspecialchars($info['precio']) . "</td>"; // Precio del producto
         echo "<td>" . htmlspecialchars($info['cantidad']) . "</td>"; // Cantidad en stock
         // Cantidad que compra el usuario 
-        echo "<td><input type='number' name='cantidad[$producto]' min='0' max='" . $info['cantidad'] . "' value='0'></td>"; 
+        echo "<td><input type='text' name='cantidad[$producto]' min='0' max='" . $info['cantidad'] . "' value='0'></td>"; 
         echo "</tr>";
     }
     ?>
@@ -89,3 +93,8 @@ foreach ($preciosProductos as $producto => $precio) {
 
 </body>
 </html>
+<?php 
+}else{
+    echo("nombre invalido");
+   };
+?>
