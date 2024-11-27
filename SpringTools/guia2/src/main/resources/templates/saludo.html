@@ -1,0 +1,28 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Manejo de envío de formularios(saludo)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Formulario</h1>
+
+        <!-- el action enviara los datos a saludo.html
+         con object asocias todos los datos del formularios a un objeto llamado "saludo" 
+        -->
+        
+        <form action="#" th:action="@{/saludo}"  th:object="${saludo}" method="post">
+           
+        
+            <!-- con th:field creamos un dato que se asocia con el objeto -->    
+            <p>Id: <input type="text" th:field="*{id}" /></p>
+            <p>Message: <input type="text" th:field="*{contenido}" /></p>
+
+            <p>
+                <input type="submit" value="Enviar"/>
+                <input type="reset"  value="Borrar">
+            </p>
+        </form>
+    </body>
+</html>
