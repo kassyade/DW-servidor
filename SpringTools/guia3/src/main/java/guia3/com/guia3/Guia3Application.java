@@ -1,4 +1,4 @@
-package com.example.guia3;
+package guia3.com.guia3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,4 +10,4 @@ public class Guia3Application {
 		SpringApplication.run(Guia3Application.class, args);
 	}
 
-}
+} 
