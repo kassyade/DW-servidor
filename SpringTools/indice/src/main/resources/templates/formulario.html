@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cálculo de Grasa Corporal</title>
+</head>
+<body>
+    <h1>Calcula tu Grasa Corporal</h1>
+    <form th:action="@{/calcular}" th:object="${persona}" method="post">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" step="0.1" th:value="*{peso}" required><br>
+
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" step="0.1" th:value="*{altura}" required><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" th:value="*{edad}" required><br>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" th:value="*{genero}" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+</body>
+</html>

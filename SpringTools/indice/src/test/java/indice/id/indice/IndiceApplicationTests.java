@@ -1,4 +1,4 @@
-package indice.corporal.indice;
+package indice.id.indice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

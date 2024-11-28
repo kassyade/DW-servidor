@@ -8,7 +8,7 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>indice.corporal</groupId>
+	<groupId>indice.id</groupId>
 	<artifactId>indice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>indice</name>
