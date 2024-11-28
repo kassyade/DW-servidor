@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Confirmación</title>
+</head>
+<body>
+    <h1>Datos del registro</h1>
+    <p><strong>Nombre:</strong> <span th:text="${persona.nombre}"></span></p>
+    <p><strong>Primer apellido:</strong> <span th:text="${persona.primerApellido}"></span></p>
+    <p><strong>Segundo apellido:</strong> <span th:text="${persona.segundoApellido}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${persona.email}"></span></p>
+    <p><strong>Fecha de nacimiento:</strong> <span th:text="${persona.fechaNacimiento}"></span></p>
+    <p><strong>Sexo:</strong> <span th:text="${persona.sexo}"></span></p>
+    <p><strong>Dirección:</strong> <span th:text="${persona.direccion}"></span></p>
+    <p><strong>Nivel de estudios:</strong> <span th:text="${persona.nivelEstudios}"></span></p>
+    <p><strong>Temas de interés:</strong> <span th:text="${#arrays.toString(persona.temasInteres)}"></span></p>
+</body>
+</html>

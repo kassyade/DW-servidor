@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro</title>
+</head>
+<body>
+    <h1>Alta de usuario en revista online</h1>
+    <form th:action="@{/registro}" th:object="${persona}" method="post">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <div>
+                Nombre: <input type="text" th:field="*{nombre}" />
+                <p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+            </div>
+            <div>
+                Primer apellido: <input type="text" th:field="*{primerApellido}" />
+                <p th:if="${#fields.hasErrors('primerApellido')}" th:errors="*{primerApellido}"></p>
+            </div>
+            <div>
+                Segundo apellido: <input type="text" th:field="*{segundoApellido}" />
+                <p th:if="${#fields.hasErrors('segundoApellido')}" th:errors="*{segundoApellido}"></p>
+            </div>
+            <div>
+                Email: <input type="email" th:field="*{email}" />
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            </div>
+            <div>
+                Fecha nacimiento: <input type="date" th:field="*{fechaNacimiento}" />
+                <p th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></p>
+            </div>
+            <div>
+                Contraseña: <input type="password" th:field="*{contrasena}" />
+                <p th:if="${#fields.hasErrors('contrasena')}" th:errors="*{contrasena}"></p>
+            </div>
+            <div>
+                Sexo: 
+                <label><input type="radio" th:field="*{sexo}" value="Varón" /> Varón</label>
+                <label><input type="radio" th:field="*{sexo}" value="Mujer" /> Mujer</label>
+                <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}"></p>
+            </div>
+            <div>
+                Dirección: <input type="text" th:field="*{direccion}" />
+                <p th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></p>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Nivel de estudios e intereses</legend>
+            <div>
+                Nivel de estudios:
+                <select th:field="*{nivelEstudios}">
+                    <option value="Certificado escolar">Certificado escolar</option>
+                    <option value="Graduado en E.S.O.">Graduado en E.S.O.</option>
+                    <option value="Bachiller - Formación Profesional">Bachiller - Formación Profesional</option>
+                    <option value="Diplomado">Diplomado</option>
+                    <option value="Licenciado o Doctorado">Licenciado o Doctorado</option>
+                </select>
+                <p th:if="${#fields.hasErrors('nivelEstudios')}" th:errors="*{nivelEstudios}"></p>
+            </div>
+            <div>
+                Recibir artículos sobre:
+                <label><input type="checkbox" th:field="*{temasInteres}" value="Música" /> Música</label>
+                <label><input type="checkbox" th:field="*{temasInteres}" value="Deportes" /> Deportes</label>
+                <label><input type="checkbox" th:field="*{temasInteres}" value="Cine" /> Cine</label>
+                <label><input type="checkbox" th:field="*{temasInteres}" value="Libros" /> Libros</label>
+                <label><input type="checkbox" th:field="*{temasInteres}" value="Ciencia" /> Ciencia</label>
+            </div>
+        </fieldset>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
