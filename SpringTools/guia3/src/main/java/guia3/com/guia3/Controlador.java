@@ -25,6 +25,7 @@ public class Controlador  {
     @PostMapping("/")
     public String VerificacionPersona(@Valid Persona persona, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            System.out.println("Errores encontrados: " + bindingResult.getAllErrors());
             return "formulario";
         }
         model.addAttribute("Persona", persona); // Pasamos el objeto al modelo
