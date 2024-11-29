@@ -14,7 +14,7 @@ import jakarta.validation.Valid;
 @Controller
 public class Controlador  {
 
-    @GetMapping("/")
+    @GetMapping("/guia3")
     public String MostrarFormulario(Model model ) {
         model.addAttribute("Persona",new Persona());
         return "formulario";

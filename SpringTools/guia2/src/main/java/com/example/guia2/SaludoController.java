@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class SaludoController {
 
 
-    @GetMapping("/saludo")
+    @GetMapping("/")
     public String FormularioSaludo(Model model){
         model.addAttribute("saludo",new Saludo());
         return "saludo";
