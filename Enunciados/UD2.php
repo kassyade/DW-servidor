@@ -8,7 +8,6 @@
 <title>UD2 - Carrito simple</title>
 </head>
 <body>
-
 <p>Cesta de la compra de fruta y verdura:</p>
 
 
