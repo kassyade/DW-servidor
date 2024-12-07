@@ -107,6 +107,8 @@ echo("
 </form>
 
 <?php 
+
+
     if(!empty($_POST['producto1']) &&!empty($_POST['producto1Cantidad']) ) {
         if($Cuno>$TOPE_PRODUCTO){
             $Cuno=$TOPE_PRODUCTO;
