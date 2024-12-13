@@ -1,18 +1,19 @@
 
 
-<form action="passwd.php" method="post">
-<p>
-<label >Usuario:</label>
-<input type="text" name="nombre" />
-</p>
-<p>
-<label>Contraseña:</label>
-<input type="password" name="contraseña" />
-</p>
-<p><input type="submit" value="Iniciar sesión" /></p>
+<form action="" method="post">
+    <p>
+        <label >Usuario:</label>
+        <input type="text" name="nombre" />
+    </p>
+    <p>
+        <label>Contraseña:</label>
+        <input type="password" name="contraseña" />
+    </p>
+        <p><input type="submit" value="Iniciar sesión" /></p>
 </form>
 
 <?php
+session_start();
 $usuarios=[
     ["usuario"=>"user1" ,"contraseña"=>'$2y$10$3SgeyVJD/mw0rvRtjkwWk.8XM1.GpDr8NWc95bN.tpSK2sEriXtX2'],
     ["usuario"=>"user2" ,"contraseña"=>'$2y$10$OymrA3YaPJ4Pfnh.H3GOneuD2y5OklZVW28OxrniOdkDyLWPN/80u'],
@@ -26,41 +27,47 @@ $usuarios=[
     ["usuario"=>"user10" ,"contraseña"=>'$2y$10$dX8LQLCIcJc5IwHqdP1aVOiINd0SF1IfPu8xzf4tnCyxuIonXRbf.'],
 ];
 
-If($_SERVER['REQUEST_METHOD']=='POST' && !empty($_POST['nombre']) && !empty($_POST['contraseña'])){
-    $nombre=$_POST['nombre'];
-    $contraseña=$_POST['contraseña'];
-    //creamos usuario11 aqui 
-    $x=password_hash("mandarina",PASSWORD_BCRYPT);
-    $y=false;
 
-    $usuario11=[
-        "usuario"=>"user11",
-        "contraseña"=>$x
-    ];
-    $usuarios[]=$usuario11;
+if(isset($_SESSION['usuario'])){
+    $nombre=$_SESSION['usuario'];
+    echo("bienvenido DE NUEVO $nombre <p></p> ");
 
-
-    foreach($usuarios as $x){
-        if($nombre == $x['usuario'] && password_verify($contraseña,$x['contraseña'])){
-            echo("inicio de sesion correcto <p></p>");
-            $_SESSION['usuario']=true;
-            echo( "Bienvenido  {$nombre}" );
-            $y=true;
-            break;
-        }
-
- 
-
-    }
-    if(!$y){
-        echo('usuario y/o conttraseñas incorrectos');
-    }
-
+    echo("<a href='cerrarsesion.php'>Cerrar sesion</a>");
 }else{
-    echo("Datos incorrectos");
-}
 
- 
+    if($_SERVER['REQUEST_METHOD']=='POST' ){
+
+        if(!empty($_POST['nombre']) && !empty($_POST['contraseña']) ){
+            $usuarioEncontrado=false;
+            $nombre=$_POST['nombre'];
+            $contraseña=$_POST['contraseña'];
+    
+            $userNuevo=[
+                "usuario"=>"user11",
+                "contraseña"=>password_hash("hola",PASSWORD_BCRYPT)
+            ];
+            $usuarios[]=$userNuevo;
+    
+            foreach($usuarios as $usuario){
+                if($nombre == $usuario['usuario']  && password_verify($contraseña,$usuario['contraseña'])){
+                    echo("Inicio de sesion correcto");
+                    $usuarioEncontrado=true;
+                    $_SESSION['usuario']=$nombre;
+                }
+    
+            }
+    
+            if($usuarioEncontrado==false){
+                echo("ususario no encontrado ");
+            }
+    
+        }else{
+            echo("introduce datos");
+        }
+    
+    }
+    
+}
 
 
 ?>
