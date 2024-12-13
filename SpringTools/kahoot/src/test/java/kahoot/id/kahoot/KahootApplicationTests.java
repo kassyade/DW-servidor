@@ -1,10 +1,10 @@
-package com.example.demo;
+package kahoot.id.kahoot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class KahootApplicationTests {
 
 	@Test
 	void contextLoads() {
