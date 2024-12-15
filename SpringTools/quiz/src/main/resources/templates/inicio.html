@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+
+    </head>
+    <body>
+        <center>
+            <h1>QUIZ</h1>
+    <form th:action="@{/pregunta1}" method="post" th:object="${usuario}">
+            <label >Introduce tu nombre para empezar:</label>
+            <input type="text" th:field="*{nombre}" >
+            <p></p>
+            <button type="submit">empezar</button>
+        </form>
+        </center>
+    </body>
+</html>

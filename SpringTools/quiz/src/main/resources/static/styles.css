@@ -1,0 +1,72 @@
+/* Estilo general */
+body {
+    background-color: #fdf8e4; /* Color crema de fondo */
+    color: #5a5a5a; /* Color gris oscuro para el texto */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+center {
+    background-color: #fffaf0; /* Fondo más claro para el contenido */
+    border: 2px solid #d2b48c; /* Bordes con color beige */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2em;
+    color: #b8860b; /* Dorado */
+    margin-bottom: 15px;
+}
+
+/* Botones */
+button {
+    background-color: #f4e1c1; /* Color crema para los botones */
+    color: #5a5a5a;
+    border: 1px solid #d2b48c;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e6c29f; /* Más oscuro al pasar el ratón */
+    color: #fff;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #d2b48c;
+}
+
+/* Preguntas */
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #5a5a5a;
+    text-align: center;
+}
+
+/* Espaciado */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
