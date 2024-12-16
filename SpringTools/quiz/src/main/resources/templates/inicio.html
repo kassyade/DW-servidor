@@ -10,7 +10,8 @@
             <h1>QUIZ</h1>
     <form th:action="@{/pregunta1}" method="post" th:object="${usuario}">
             <label >Introduce tu nombre para empezar:</label>
-            <input type="text" th:field="*{nombre}" >
+            <p></p>
+            <input type="text" th:field="*{nombre}">
             <p></p>
             <button type="submit">empezar</button>
         </form>
