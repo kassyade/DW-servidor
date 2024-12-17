@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pregunta 6</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <center>
+        <h1>QUIZ - Pregunta 6</h1>
+        <p>¿Qué recurso valoras más en una comunidad de programación?</p>
+        <form th:action="@{/pregunta7}" method="post" th:object="${usuario}">
+                    <button type="submit" name="respuesta" value="4">Tutoriales y documentación extensa</button>
+                    <button type="submit" name="respuesta" value="3">Respuestas rápidas en foros</button>
+                    <button type="submit" name="respuesta" value="2">Contribuciones a código abierto</button>
+                    <button type="submit" name="respuesta" value="1">Proyectos compartidos de ejemplo</button>
+        </form>
+    </center>
+</body>
+</html>
