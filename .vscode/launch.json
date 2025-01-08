@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BaseDatosApplication",
+            "request": "launch",
+            "mainClass": "datos.id.base_datos.BaseDatosApplication",
+            "projectName": "base_datos"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-QuizApplication<quiz>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
