@@ -1,4 +1,5 @@
-package datos.id.base_datos;
+package base.datoss.basedatos1;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -2,6 +2,19 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Basedatos1Application",
+            "request": "launch",
+            "mainClass": "base.datoss.basedatos1.Basedatos1Application"
+        },
+        {
+            "type": "java",
+            "name": "BaseDatosApplication",
+            "request": "launch",
+            "mainClass": "datos.id.base_datos.BaseDatosApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "BaseDatosApplication",
             "request": "launch",
             "mainClass": "datos.id.base_datos.BaseDatosApplication",
