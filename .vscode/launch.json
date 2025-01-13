@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClientesApplication",
+            "request": "launch",
+            "mainClass": "clientes.id.clientes.ClientesApplication"
+        },
+        {
+            "type": "java",
             "name": "Basedatos1Application",
             "request": "launch",
             "mainClass": "base.datoss.basedatos1.Basedatos1Application"
