@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pregunta 1</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+    <center>
+        <h1>QUIZ - Pregunta 1</h1>
+        <p>¿Prefieres trabajar con:</p>
+        <form th:action="@{/pregunta2}" method="post">
+            <button type="submit" name="respuesta" value="1">Interfaces gráficas avanzadas</button>
+            <button type="submit" name="respuesta" value="2">Procesamiento de formularios web</button>
+            <button type="submit" name="respuesta" value="3">Concurrencia y rendimiento</button>
+            <button type="submit" name="respuesta" value="4">Procesamiento de datos masivos</button>
+        </form>
+    </center>
+</body>
+</html>

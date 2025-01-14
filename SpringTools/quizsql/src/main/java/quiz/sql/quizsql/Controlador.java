@@ -1,4 +1,4 @@
-package quiz.id.quiz;
+package quiz.sql.quizsql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,14 +66,16 @@ public class Controlador {
     }
 
 
-
     @PostMapping("/resultado")
-    public String resultado(@ModelAttribute Usuario usuario, @RequestParam("respuesta") int respuesta, Model model) {
-        usuario.agregarPuntuacion(respuesta);
-
+    public String resultado(@ModelAttribute("usuario") Usuario usuario, @RequestParam("respuesta") int respuesta, Model model) {
+        usuario.agregarPuntuacion(respuesta); // Actualiza la puntuación total
+    
         String lenguaje = calcularLenguaje(usuario.getPuntuacionTotal());
         model.addAttribute("lenguaje", lenguaje);
-
+    
+        // Guarda el usuario en el repositorio
+        repositorioUsuario.save(usuario);
+    
         return "resultado";
     }
     private String calcularLenguaje(int puntuacionTotal) {
@@ -90,6 +92,8 @@ public class Controlador {
         } else {
             return "Python: ideal para análisis de datos, automatización e inteligencia artificial.";
         }
+
+
     }
     
 }

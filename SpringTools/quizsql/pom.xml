@@ -8,10 +8,10 @@
 		<version>3.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>clientes.id</groupId>
-	<artifactId>clientes</artifactId>
+	<groupId>quiz.sql</groupId>
+	<artifactId>quizsql</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>clientes</name>
+	<name>quizsql</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

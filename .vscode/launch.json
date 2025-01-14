@@ -2,6 +2,32 @@
     "configurations": [
         {
             "type": "java",
+            "name": "QuizsqlApplication",
+            "request": "launch",
+            "mainClass": "quiz.sql.quizsql.QuizsqlApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "FomularioApplication",
+            "request": "launch",
+            "mainClass": "com.ejemplo.fomulario.FomularioApplication"
+        },
+        {
+            "type": "java",
+            "name": "FormularioApplication",
+            "request": "launch",
+            "mainClass": "com.ejemplo.formulario.FormularioApplication"
+        },
+        {
+            "type": "java",
+            "name": "ClientesApplication",
+            "request": "launch",
+            "mainClass": "cliente.id.clientes.ClientesApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "ClientesApplication",
             "request": "launch",
             "mainClass": "clientes.id.clientes.ClientesApplication"

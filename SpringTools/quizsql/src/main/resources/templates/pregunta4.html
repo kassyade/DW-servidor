@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pregunta 4</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <center>
+        <h1>QUIZ - Pregunta 4</h1>
+        <p>¿Qué te motiva más al programar?</p>
+        <form th:action="@{/pregunta5}" method="post" th:object="${usuario}">
+            <button type="submit" name="respuesta" value="4">Resolver problemas complejos</button>
+            <button type="submit" name="respuesta" value="3">Crear aplicaciones innovadoras</button>
+            <button type="submit" name="respuesta" value="1">Aprender nuevas tecnologías</button>
+            <button type="submit" name="respuesta" value="2">Optimizar procesos existentes</button>
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pregunta </title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <center>
+        <h1>QUIZ - Pregunta 7</h1>
+        <p>¿Qué aspecto es más importante para ti en el ciclo de desarrollo?</p>
+        <form th:action="@{/resultado}" method="post" th:object="${usuario}">
+                    <button type="submit" name="respuesta" value="4">Pruebas y depuración</button>
+                    <button type="submit" name="respuesta" value="3">Optimización del código</button>
+                    <button type="submit" name="respuesta" value="2">Despliegue y mantenimiento</button>
+                    <button type="submit" name="respuesta" value="1">Entrega rápida de funcionalidad</button>
+                    
+        </form>
+    </center>
+</body>
+</html>

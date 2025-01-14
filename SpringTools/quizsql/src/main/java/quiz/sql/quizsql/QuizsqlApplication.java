@@ -1,13 +1,13 @@
-package clientes.id.clientes;
+package quiz.sql.quizsql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClientesApplication {
+public class QuizsqlApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientesApplication.class, args);
+		SpringApplication.run(QuizsqlApplication.class, args);
 	}
 
 }
