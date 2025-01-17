@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProfesoresApplication",
+            "request": "launch",
+            "mainClass": "com.example.demo.ProfesoresApplication",
+            "projectName": "profesores"
+        },
+        {
+            "type": "java",
             "name": "QuizsqlApplication",
             "request": "launch",
             "mainClass": "quiz.sql.quizsql.QuizsqlApplication",

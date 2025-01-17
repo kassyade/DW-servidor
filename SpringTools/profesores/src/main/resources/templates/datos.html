@@ -1,0 +1,16 @@
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Profesor</th>
+        <th>Emails</th>
+    </tr>
+    <tr th:each="profesor : ${profesores}">
+        <td th:text="${profesor.idProfesor}"></td>
+        <td th:text="${profesor.nombre}"></td>
+        <td>
+            <ul>
+                <li th:each="email : ${profesor.emails}" th:text="${email.direccion}"></li>
+            </ul>
+        </td>
+    </tr>
+</table>
