@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="/estilos.css">
+</head>	
+<body>
+	<form class="container"  th:action="@{/pregunta1}"  method="post">
+		<p>Introduce tu nombre para comenzar</p>
+		<input type="text" name="nombre"  >
+		<button  type="submit">enviar</button>
+	</form>
+</body>
+</html>
