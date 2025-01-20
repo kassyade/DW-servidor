@@ -1,0 +1,18 @@
+<html  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Pregunta 3</title>
+		<link rel="stylesheet" type="text/css" href="/estilos.css">
+
+	</head>
+	<body>
+		<h2>Pregunta 3</h2>
+
+		<p>¿Qué característica valoras más en un lenguaje de programación?</p>
+		<form class="container" th:action="@{pregunta4}" method="post" >
+			<button type="submit" name="puntos" value="1">Flexibilidad y dinamismo para el desarrollo web</button>
+			<button type="submit" name="puntos" value="2">Simplicidad para trabajar con bases de datos</button>
+			<button type="submit" name="puntos" value="3">Rendimiento y estabilidad</button>
+			<button type="submit" name="puntos" value="4">Facilidad para trabajar con datos y automatización</button>
+		</form>
+	</body>
+</html>

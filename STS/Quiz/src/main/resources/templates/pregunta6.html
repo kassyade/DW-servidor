@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>pregunta6</title>
+		<link rel="stylesheet" type="text/css" href="/estilos.css">
+
+	</head>
+	<body>
+		<h2>Pregunta 6</h2>
+
+		<p>¿Qué recurso valoras más en una comunidad de programación?</p>
+		<form class="container"  th:action="@{resultado}" method="post">
+			<button type="submit" name="puntos" value="4">Tutoriales y documentación extensa</button>
+			                  <button type="submit" name="puntos" value="3">puntoss rápidas en foros</button>
+			                  <button type="submit" name="puntos" value="2">Contribuciones a código abierto</button>
+			                  <button type="submit" name="puntos" value="1">Proyectos compartidos de ejemplo</button>
+		</form>
+	</body>
+</html>

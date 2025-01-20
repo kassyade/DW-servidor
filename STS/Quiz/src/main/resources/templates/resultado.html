@@ -1,0 +1,22 @@
+<html  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Resultado</title>
+		<link rel="stylesheet" type="text/css" href="/estilos.css">
+
+	</head>
+	<body>
+		<p>
+		  Felicidades <span th:text="${session.usuario.nombre}">!!</span>
+		</p>
+		<p>
+			Tu puntuación final es <span th:text="${session.usuario.puntuacion}"> puntos</span>
+		</p>
+		<p>Eres <span th:text="${session.usuario.lenguaje}"></span></p>
+		<form th:action="@{guardarDatos}" method="post">
+			<textarea name="comentario">
+				
+			</textarea>
+			<button>Enviar comentario</button>
+		</form>
+	</body>
+</html>
