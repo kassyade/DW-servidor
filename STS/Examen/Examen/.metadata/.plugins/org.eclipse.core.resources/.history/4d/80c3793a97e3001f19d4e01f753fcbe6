@@ -1,0 +1,5 @@
+package ies.goya.examen.ud5.repository;
+
+public class JpaRepository<T1, T2> {
+
+}

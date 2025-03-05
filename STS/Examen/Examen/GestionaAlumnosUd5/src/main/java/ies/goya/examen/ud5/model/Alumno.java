@@ -1,0 +1,100 @@
+package ies.goya.examen.ud5.model;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
+public class Alumno {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected Long id;
+	protected String nombre;
+	protected String apellidos;
+	
+	@OneToMany(mappedBy="alumno",cascade=CascadeType.REMOVE)
+	protected List<Email> emails;
+	/*
+	public Alumno() {
+		id = contadorIds++; // a quitar al meterlo en BD
+		emails = new LinkedHashSet<Email>();
+	}*/
+	
+	//CONSTRUCTORES VACIOS
+	public Alumno(String nombre, String apellidos) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+
+	}
+	public Alumno() {
+
+	}
+	
+	
+	
+
+	
+	public List<Email> getEmails() {
+		return emails;
+	}
+	public void setEmails(List<Email> emails) {
+		this.emails = emails;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellidos() {
+		return apellidos;
+	}
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	
+	public boolean addEmail(Email x) {
+		return emails.add(x);
+	}
+	
+	public boolean delEmail(Email email) {
+		return emails.remove(email);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellidos, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alumno other = (Alumno) obj;
+		return Objects.equals(apellidos, other.apellidos) && Objects.equals(nombre, other.nombre);
+	}
+	
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos +  "]";
+	}
+
+}

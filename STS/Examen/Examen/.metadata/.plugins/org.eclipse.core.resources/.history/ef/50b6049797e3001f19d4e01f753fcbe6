@@ -1,0 +1,5 @@
+package ies.goya.examen.ud5.repository;
+
+public interface RepositorioAlumno {
+
+}
